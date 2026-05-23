@@ -2,8 +2,37 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio — HEM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Portfolio — HEM | Hyper Effect Marketing</title>
+
+<!-- ═══ PWA META ═══ -->
+<meta name="description" content="HEM (Hyper Effect Marketing) — Tim kreatif yang menghadirkan solusi digital modern: website, branding, dan sistem digital premium.">
+<meta name="theme-color" content="#7c6bff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="HEM Portfolio">
+<meta name="application-name" content="HEM Portfolio">
+<meta name="msapplication-TileColor" content="#080a0f">
+<meta name="msapplication-navbutton-color" content="#7c6bff">
+
+<!-- ═══ Open Graph ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="HEM — Hyper Effect Marketing | Digital Creative Agency">
+<meta property="og:description" content="Kami menciptakan pengalaman digital yang indah, intuitif, dan berdampak — dari pixel pertama hingga baris kode terakhir.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=630&fit=crop">
+
+<!-- ═══ Twitter Card ═══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HEM — Hyper Effect Marketing">
+<meta name="twitter:description" content="Tim kreatif solusi digital modern, profesional, dan impactful.">
+
+<!-- ═══ Manifest & Icons ═══ -->
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23080a0f'/%3E%3Ctext x='16' y='22' font-family='Arial Black' font-size='11' font-weight='900' text-anchor='middle' fill='url(%23g)'%3EHEM%3C/text%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c6bff'/%3E%3Cstop offset='1' stop-color='%2306d6c7'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23080a0f'/%3E%3Ctext x='90' y='115' font-family='Arial Black' font-size='55' font-weight='900' text-anchor='middle' fill='%237c6bff'%3EHEM%3C/text%3E%3C/svg%3E">
+
+<!-- ═══ Fonts ═══ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -910,6 +939,91 @@
     .about-cards { grid-template-columns: 1fr 1fr; }
     .contact-grid { gap: 2rem; }
   }
+
+  /* ─── PWA: SAFE AREA (notch/island support) ─── */
+  nav    { padding-top: max(0px, env(safe-area-inset-top)); height: calc(70px + env(safe-area-inset-top)); }
+  footer { padding-bottom: max(2rem, calc(1rem + env(safe-area-inset-bottom))); }
+
+  /* ─── PWA: INSTALL BANNER ─── */
+  #pwa-install-banner {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%; transform: translateX(-50%) translateY(120px);
+    z-index: 500;
+    display: flex; align-items: center; gap: 1rem;
+    background: rgba(13,16,23,0.96);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border2);
+    border-radius: 20px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(124,107,255,0.15);
+    transition: transform 0.5s var(--ease), opacity 0.4s;
+    opacity: 0;
+    min-width: 300px; max-width: 420px;
+    width: calc(100vw - 3rem);
+  }
+  #pwa-install-banner.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  .pwa-banner-icon {
+    width: 48px; height: 48px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-head); font-size: 0.78rem; font-weight: 900; color: #fff;
+    letter-spacing: -0.02em;
+  }
+  .pwa-banner-text { flex: 1; min-width: 0; }
+  .pwa-banner-title { font-size: 0.875rem; font-weight: 700; margin-bottom: 0.1rem; }
+  .pwa-banner-sub   { font-size: 0.72rem; color: var(--muted); }
+  .pwa-banner-btns  { display: flex; gap: 0.5rem; flex-shrink: 0; }
+  .pwa-btn-install {
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--accent), #9d8fff);
+    color: #fff; border: none; border-radius: 100px;
+    font-size: 0.78rem; font-weight: 700; cursor: pointer;
+    transition: box-shadow 0.3s, transform 0.2s; white-space: nowrap;
+  }
+  .pwa-btn-install:hover { box-shadow: 0 4px 20px var(--glow); transform: translateY(-1px); }
+  .pwa-btn-dismiss {
+    width: 32px; height: 32px;
+    background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+    border-radius: 100px; color: var(--muted); font-size: 1rem; line-height: 1;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s;
+  }
+  .pwa-btn-dismiss:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+
+  /* ─── PWA: UPDATE TOAST ─── */
+  #pwa-update-toast {
+    position: fixed; top: 80px; right: 1.5rem; z-index: 500;
+    background: rgba(13,16,23,0.95); backdrop-filter: blur(16px);
+    border: 1px solid rgba(6,214,199,0.3); border-radius: 16px;
+    padding: 0.85rem 1.25rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    transform: translateX(140%); transition: transform 0.45s var(--ease);
+    max-width: 300px;
+  }
+  #pwa-update-toast.show { transform: translateX(0); }
+  .toast-dot { width: 8px; height: 8px; background: var(--accent2); border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; flex-shrink: 0; }
+  .toast-text { flex: 1; font-size: 0.8rem; color: var(--subtle); }
+  .toast-text strong { color: var(--text); display: block; font-size: 0.85rem; }
+  .toast-refresh {
+    padding: 0.4rem 0.85rem; background: var(--accent2); color: #080a0f;
+    border: none; border-radius: 100px; font-size: 0.75rem; font-weight: 700;
+    cursor: pointer; white-space: nowrap; transition: opacity 0.2s;
+  }
+  .toast-refresh:hover { opacity: 0.85; }
+
+  /* ─── PWA: OFFLINE BAR ─── */
+  #offline-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 600;
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+    color: #fff; text-align: center; font-size: 0.8rem; font-weight: 600;
+    padding: 0.5rem; letter-spacing: 0.02em;
+    transform: translateY(-100%); transition: transform 0.35s var(--ease);
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  }
+  #offline-bar.show { transform: translateY(0); }
 </style>
 </head>
 <body>
@@ -917,6 +1031,34 @@
 <!-- CURSOR -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
+
+<!-- PWA: Offline bar -->
+<div id="offline-bar" role="alert">
+  <span>📡</span> Anda sedang offline — konten mungkin tidak terbaru
+</div>
+
+<!-- PWA: Update toast -->
+<div id="pwa-update-toast" role="status">
+  <span class="toast-dot"></span>
+  <div class="toast-text">
+    <strong>Update Tersedia!</strong>
+    Versi baru portfolio HEM sudah siap.
+  </div>
+  <button class="toast-refresh" id="pwa-refresh-btn">Perbarui</button>
+</div>
+
+<!-- PWA: Install banner -->
+<div id="pwa-install-banner" role="complementary" aria-label="Install App">
+  <div class="pwa-banner-icon">HEM.</div>
+  <div class="pwa-banner-text">
+    <div class="pwa-banner-title">Install HEM Portfolio</div>
+    <div class="pwa-banner-sub">Akses lebih cepat &amp; bisa offline</div>
+  </div>
+  <div class="pwa-banner-btns">
+    <button class="pwa-btn-install" id="pwa-install-btn">Install</button>
+    <button class="pwa-btn-dismiss" id="pwa-dismiss-btn" title="Tutup">✕</button>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -1671,6 +1813,126 @@
     });
   });
   if (statNums[0]) statsObserver.observe(statNums[0]);
+
+  /* ════════════════════════════════════
+     PWA — Service Worker, Install, Offline
+     ════════════════════════════════════ */
+
+  let swRegistration   = null;
+  let deferredPrompt   = null;
+  let newWorkerWaiting = null;
+
+  // ── 1. Register Service Worker ──
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+      try {
+        swRegistration = await navigator.serviceWorker.register('./sw.js', { scope: './' });
+        console.log('[PWA] SW registered:', swRegistration.scope);
+
+        // Poll for updates every 60s
+        setInterval(() => swRegistration.update(), 60_000);
+
+        swRegistration.addEventListener('updatefound', () => {
+          const newWorker = swRegistration.installing;
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              newWorkerWaiting = newWorker;
+              showUpdateToast();
+            }
+          });
+        });
+
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (newWorkerWaiting) window.location.reload();
+        });
+
+      } catch (err) {
+        console.warn('[PWA] SW failed:', err);
+      }
+    });
+  }
+
+  // ── 2. Install Prompt (A2HS) ──
+  const installBanner = document.getElementById('pwa-install-banner');
+  const installBtn    = document.getElementById('pwa-install-btn');
+  const dismissBtn    = document.getElementById('pwa-dismiss-btn');
+
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!sessionStorage.getItem('pwa-hem-dismissed')) {
+      setTimeout(() => installBanner.classList.add('show'), 3500);
+    }
+  });
+
+  installBtn.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    installBanner.classList.remove('show');
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log('[PWA] Install outcome:', outcome);
+    deferredPrompt = null;
+    if (outcome === 'accepted') showInstallSuccess();
+  });
+
+  dismissBtn.addEventListener('click', () => {
+    installBanner.classList.remove('show');
+    sessionStorage.setItem('pwa-hem-dismissed', '1');
+    deferredPrompt = null;
+  });
+
+  window.addEventListener('appinstalled', () => {
+    installBanner.classList.remove('show');
+    deferredPrompt = null;
+    console.log('[PWA] App installed!');
+  });
+
+  function showInstallSuccess() {
+    const t = document.createElement('div');
+    t.style.cssText = `
+      position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);
+      background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;
+      border-radius:100px;padding:.75rem 1.5rem;font-size:.85rem;
+      font-weight:700;z-index:600;box-shadow:0 8px 32px rgba(34,197,94,.4);
+      animation:fadeInUp .4s ease both;white-space:nowrap;
+    `;
+    t.textContent = '✓ HEM Portfolio berhasil diinstall!';
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 3500);
+  }
+
+  // ── 3. Update Toast ──
+  const updateToast = document.getElementById('pwa-update-toast');
+  const refreshBtn  = document.getElementById('pwa-refresh-btn');
+
+  function showUpdateToast() {
+    setTimeout(() => updateToast.classList.add('show'), 600);
+  }
+  refreshBtn.addEventListener('click', () => {
+    updateToast.classList.remove('show');
+    if (newWorkerWaiting) newWorkerWaiting.postMessage({ type: 'SKIP_WAITING' });
+    else window.location.reload();
+  });
+
+  // ── 4. Online / Offline ──
+  const offlineBar = document.getElementById('offline-bar');
+  function updateOnlineStatus() {
+    navigator.onLine
+      ? offlineBar.classList.remove('show')
+      : offlineBar.classList.add('show');
+  }
+  window.addEventListener('online',  updateOnlineStatus);
+  window.addEventListener('offline', updateOnlineStatus);
+  updateOnlineStatus();
+
+  // ── 5. Standalone detection ──
+  const isStandalone =
+    window.matchMedia('(display-mode: standalone)').matches ||
+    navigator.standalone === true;
+  if (isStandalone) {
+    installBanner.style.display = 'none';
+    console.log('[PWA] Running as installed app');
+  }
 </script>
 </body>
 </html>
