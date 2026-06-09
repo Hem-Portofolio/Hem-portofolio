@@ -12,7 +12,8 @@ const CACHE_IMAGES  = `hem-images-${APP_VERSION}`;
 const STATIC_ASSETS = [
   './index.html',
   './manifest.json',
-  'https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap'
+  './logo.png',
+  'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap'
 ];
 
 /* ── INSTALL ── */
