@@ -51,6 +51,13 @@
   "offers": [
     {
       "@type": "Offer",
+      "name": "Paket Joki Website",
+      "price": "800000",
+      "priceCurrency": "IDR",
+      "priceValidUntil": "2026-12-31"
+    },
+    {
+      "@type": "Offer",
       "name": "Paket UMKM",
       "price": "1500000",
       "priceCurrency": "IDR"
@@ -144,29 +151,39 @@ section{padding:80px 0}
 .teknologi-name{font-family:var(--font-head);font-weight:700;font-size:15px;color:var(--white)}
 
 /* Paket Harga */
-.paket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
-.paket-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r3);overflow:hidden;transition:all .35s var(--ease2);position:relative}
-.paket-card:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(6,26,64,.1)}
-.paket-card.popular{border-color:var(--gold);box-shadow:0 4px 24px var(--gold-glow)}
-.paket-card.popular:hover{box-shadow:0 16px 48px rgba(201,162,39,.25)}
-.paket-badge{position:absolute;top:16px;right:16px;background:var(--gold);color:var(--navy);font-size:11px;font-weight:800;padding:4px 12px;border-radius:50px;letter-spacing:.3px}
-.paket-header{background:var(--navy);color:var(--white);padding:28px 24px 24px;text-align:center}
-.paket-card.popular .paket-header{background:linear-gradient(135deg,var(--navy),var(--navy3))}
-.paket-tipe{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
-.paket-judul{font-family:var(--font-head);font-size:20px;font-weight:800;margin-bottom:4px}
-.paket-sub{font-size:12px;color:rgba(255,255,255,.6)}
-.paket-body{padding:24px}
-.paket-varian{border-bottom:1px solid var(--border);padding:14px 0}
-.paket-varian:last-child{border-bottom:none}
-.paket-varian-label{font-size:13px;color:var(--muted);margin-bottom:2px}
-.paket-varian-name{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px}
-.paket-varian-price{font-size:22px;font-weight:800;color:var(--gold)}
-.paket-varian-price small{font-size:13px;font-weight:400;color:var(--muted)}
-.paket-fitur{margin:16px 0 20px;list-style:none;padding:0}
-.paket-fitur li{font-size:13px;color:var(--text2);padding:5px 0;display:flex;align-items:center;gap:8px}
-.paket-fitur li::before{content:'\2713';color:var(--gold);font-weight:700;font-size:14px}
-.paket-btn{display:block;text-align:center;background:var(--gold);color:var(--navy);padding:12px;border-radius:50px;font-weight:700;font-size:15px;transition:all .3s}
-.paket-btn:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 4px 16px var(--gold-glow)}
+.paket-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.paket-card{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .35s var(--ease2);position:relative;display:flex;flex-direction:column}
+.paket-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(6,26,64,.12)}
+.paket-card.popular{border-color:var(--gold);box-shadow:0 4px 20px var(--gold-glow)}
+.paket-card.popular:hover{box-shadow:0 12px 40px rgba(201,162,39,.25)}
+.paket-card.diskon{border-color:#ef4444}
+.paket-card.diskon:hover{box-shadow:0 12px 40px rgba(239,68,68,.2)}
+.paket-badge{position:absolute;top:12px;right:12px;background:var(--gold);color:var(--navy);font-size:10px;font-weight:800;padding:3px 10px;border-radius:50px;z-index:2}
+.paket-badge-diskon{position:absolute;top:12px;left:12px;background:#ef4444;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:50px;z-index:2}
+.paket-header{background:var(--navy);color:var(--white);padding:22px 20px 18px;text-align:center}
+.paket-card.popular .paket-header{background:linear-gradient(135deg,var(--navy),#0d2b5e)}
+.paket-card.diskon .paket-header{background:linear-gradient(135deg,#1e1e2f,#2a1a1a)}
+.paket-tipe{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.paket-tipe-diskon{color:#f87171}
+.paket-judul{font-size:16px;font-weight:800;margin-bottom:2px}
+.paket-sub{font-size:11px;color:rgba(255,255,255,.55)}
+.paket-body{padding:16px 20px 20px;flex:1;display:flex;flex-direction:column}
+.paket-harga{border-bottom:1px solid var(--border);padding:10px 0 12px;margin-bottom:6px}
+.paket-harga:last-of-type{border-bottom:none;margin-bottom:0}
+.paket-harga-label{font-size:11px;color:var(--muted);margin-bottom:1px}
+.paket-harga-judul{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px}
+.paket-harga-nominal{font-size:18px;font-weight:800;color:var(--gold)}
+.paket-harga-nominal small{font-size:11px;font-weight:400;color:var(--muted)}
+.paket-harga-nominal .coret{font-size:13px;font-weight:400;color:#ef4444;text-decoration:line-through;margin-right:6px}
+.paket-fitur{list-style:none;padding:0;margin:10px 0 16px;flex:1}
+.paket-fitur li{font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px}
+.paket-fitur li::before{content:'\2713';color:var(--gold);font-weight:700;font-size:12px}
+.paket-fitur li.diskon-fitur{color:#ef4444;font-weight:600}
+.paket-fitur li.diskon-fitur::before{content:'\2605';color:#ef4444;font-size:11px}
+.paket-btn{display:block;text-align:center;background:var(--gold);color:var(--navy);padding:10px;border-radius:50px;font-weight:700;font-size:13px;transition:all .3s;margin-top:auto}
+.paket-btn:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 4px 12px var(--gold-glow)}
+.paket-btn-diskon{background:#ef4444;color:#fff}
+.paket-btn-diskon:hover{background:#dc2626;color:#fff;box-shadow:0 4px 16px rgba(239,68,68,.4)}
 
 /* FAQ */
 .faq-grid{max-width:720px;margin:0 auto}
@@ -203,10 +220,39 @@ footer a:hover{color:var(--gold2)}
 /* Scroll offset */
 #keunggulan,#teknologi,#paket,#faq{scroll-margin-top:70px}
 
+/* Clien */
+#clien{background:var(--off-white)}
+.clien-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;max-width:780px;margin:0 auto}
+.clien-item{background:var(--white);border:1px solid var(--border);border-radius:50px;padding:12px 28px;font-family:var(--font-head);font-weight:600;font-size:15px;color:var(--navy);transition:all .3s var(--ease2)}
+.clien-item:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 6px 20px rgba(201,162,39,.12);color:var(--gold)}
+
+/* Testimoni */
+#testimoni{background:var(--off-white)}
+.testimoni-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testimoni-card{border-radius:var(--r2);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:all .35s var(--ease2);background:var(--white)}
+.testimoni-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(6,26,64,.1)}
+.testimoni-card img{width:100%;height:auto;display:block}
+.reveal-delay-1{transition-delay:.15s}
+.reveal-delay-2{transition-delay:.3s}
+
+/* Portfolio */
+.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.portfolio-card{display:flex;flex-direction:column;background:var(--off-white);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;text-decoration:none;color:inherit;transition:all .35s var(--ease2)}
+.portfolio-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(6,26,64,.08);border-color:var(--gold)}
+.portfolio-img{height:190px;overflow:hidden}
+.portfolio-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.portfolio-card:hover .portfolio-img img{transform:scale(1.05)}
+.portfolio-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column}
+.portfolio-badge{display:inline-block;background:var(--gold-l);color:var(--gold);font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;width:fit-content;margin-bottom:8px;letter-spacing:.3px}
+.portfolio-body h3{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3}
+.portfolio-body p{font-size:13px;color:var(--muted);line-height:1.6;flex:1}
+.portfolio-more a{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;font-weight:600;font-size:15px;border:1.5px solid var(--navy);color:var(--navy);transition:all .3s}
+.portfolio-more a:hover{background:var(--navy);color:var(--white);transform:translateY(-2px)}
+
 /* Responsive */
 @media(max-width:992px){
   .keunggulan-grid{grid-template-columns:repeat(2,1fr)}
-  .paket-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+  .paket-grid{grid-template-columns:repeat(2,1fr);max-width:600px;margin:0 auto}
 }
 @media(max-width:768px){
   .hero{padding:60px 20px 70px}
@@ -215,6 +261,12 @@ footer a:hover{color:var(--gold2)}
   .keunggulan-card{padding:22px 16px 18px}
   .teknologi-card{padding:18px 22px}
   .paket-card.popular{order:-1}
+  .testimoni-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+  .portfolio-grid{grid-template-columns:1fr}
+  .portfolio-img{height:160px}
+}
+@media(max-width:640px){
+  .paket-grid{grid-template-columns:1fr;max-width:420px}
 }
 @media(max-width:560px){
   .keunggulan-grid{grid-template-columns:1fr 1fr;gap:12px}
@@ -222,6 +274,7 @@ footer a:hover{color:var(--gold2)}
   .btn-primary,.btn-outline-light{width:100%;justify-content:center}
   .paket-header{padding:22px 18px 18px}
   .paket-body{padding:18px}
+  .clien-item{font-size:13px;padding:10px 20px}
 }
 
 /* Floating WhatsApp */
@@ -329,61 +382,86 @@ footer a:hover{color:var(--gold2)}
 </section>
 
 <!-- PAKET HARGA -->
+<!-- PAKET HARGA -->
 <section id="paket">
   <div class="container">
     <div class="section-tag reveal">Paket Harga</div>
     <h2 class="section-title reveal">Pilih Paket Sesuai <span class="gold">Kebutuhan</span></h2>
     <p class="section-sub reveal">Harga transparan, tanpa biaya tersembunyi. Setiap paket bisa dikustomisasi sesuai kebutuhan bisnis Anda.</p>
+
     <div class="paket-grid">
 
-      <!-- Paket UMKM -->
+      <div class="paket-card diskon reveal">
+        <div class="paket-badge-diskon">Best Offer</div>
+        <div class="paket-header">
+          <div class="paket-tipe paket-tipe-diskon">Paket Joki Website</div>
+          <div class="paket-judul">Cepat Online</div>
+          <div class="paket-sub">Mulai dari Rp800.000</div>
+        </div>
+        <div class="paket-body">
+          <div class="paket-harga">
+            <div class="paket-harga-label">Harga spesial</div>
+            <div class="paket-harga-judul">Company Profile / Landing Page</div>
+            <div class="paket-harga-nominal"><span class="coret">Rp1.500.000</span>Rp800.000 <small>/proyek</small></div>
+          </div>
+          <ul class="paket-fitur">
+            <li class="diskon-fitur">&#9889; Hemat Rp700.000 — promo terbatas!</li>
+            <li>Desain responsif mobile &amp; desktop</li>
+            <li>Domain &amp; hosting gratis 1 tahun</li>
+            <li>Integrasi WhatsApp &amp; form kontak</li>
+            <li>Optimasi SEO dasar</li>
+            <li>Support 1 bulan gratis</li>
+            <li>Pengerjaan 3–7 hari</li>
+          </ul>
+          <a href="https://wa.me/6285314019425" class="paket-btn paket-btn-diskon">Ambil Promo Ini</a>
+        </div>
+      </div>
+
       <div class="paket-card reveal">
         <div class="paket-header">
           <div class="paket-tipe">Paket UMKM</div>
-          <div class="paket-judul">Untuk Usaha Kecil</div>
+          <div class="paket-judul">Usaha Kecil</div>
           <div class="paket-sub">Mulai dari Rp1.500.000</div>
         </div>
         <div class="paket-body">
-          <div class="paket-varian">
-            <div class="paket-varian-label">Varian 1</div>
-            <div class="paket-varian-name">Landing Page</div>
-            <div class="paket-varian-price">Rp1.500.000 <small>/proyek</small></div>
+          <div class="paket-harga">
+            <div class="paket-harga-label">Landing Page</div>
+            <div class="paket-harga-judul">1 Halaman Profesional</div>
+            <div class="paket-harga-nominal"><span class="coret">Rp2.500.000</span>Rp1.500.000 <small>/proyek</small></div>
           </div>
-          <div class="paket-varian">
-            <div class="paket-varian-label">Varian 2</div>
-            <div class="paket-varian-name">Website Operasional + Admin</div>
-            <div class="paket-varian-price">Rp3.500.000 <small>/proyek</small></div>
+          <div class="paket-harga">
+            <div class="paket-harga-label">Website Operasional</div>
+            <div class="paket-harga-judul">Multi Halaman + Admin</div>
+            <div class="paket-harga-nominal"><span class="coret">Rp5.000.000</span>Rp3.500.000 <small>/proyek</small></div>
           </div>
           <ul class="paket-fitur">
             <li>Desain responsif mobile &amp; desktop</li>
-            <li>1 halaman (Landing Page) / Multi halaman</li>
             <li>Form kontak &amp; integrasi WhatsApp</li>
             <li>Optimasi SEO dasar</li>
-            <li>Hosting &amp; domain 1 tahun (Varian 2)</li>
+            <li>Hosting &amp; domain 1 tahun*</li>
             <li>Support 1 bulan</li>
           </ul>
           <a href="https://wa.me/6285314019425" class="paket-btn">Pilih Paket UMKM</a>
         </div>
       </div>
 
-      <!-- Paket CV -->
       <div class="paket-card popular reveal">
-        <div class="paket-badge">Paling Populer</div>
+        <div class="paket-badge">Paling Laris</div>
         <div class="paket-header">
           <div class="paket-tipe">Paket CV</div>
-          <div class="paket-judul">Untuk Perusahaan Kecil</div>
+          <div class="paket-judul">Perusahaan Kecil</div>
           <div class="paket-sub">Mulai dari Rp3.000.000</div>
         </div>
         <div class="paket-body">
-          <div class="paket-varian">
-            <div class="paket-varian-label">Varian 1</div>
-            <div class="paket-varian-name">Landing Page</div>
-            <div class="paket-varian-price">Rp3.000.000 <small>/proyek</small></div>
+          <div class="paket-harga">
+            <div class="paket-harga-label">Landing Page</div>
+            <div class="paket-harga-judul">1 Halaman Premium</div>
+            <div class="paket-harga-nominal"><span class="coret">Rp5.000.000</span>Rp3.000.000 <small>/proyek</small></div>
           </div>
-          <div class="paket-varian">
-            <div class="paket-varian-label">Varian 2</div>
-            <div class="paket-varian-name">Website Operasional + Admin</div>
-            <div class="paket-varian-price">Rp7.500.000 <small>/proyek</small></div>
+          <div class="paket-harga">
+            <div class="paket-harga-label">Website Operasional</div>
+            <div class="paket-harga-judul">Multi Halaman + Dashboard</div>
+            <div class="paket-harga-nominal"><span class="coret">Rp10.000.000</span>Rp7.500.000 <small>/proyek</small></div>
           </div>
           <ul class="paket-fitur">
             <li>Desain premium &amp; responsif</li>
@@ -398,33 +476,32 @@ footer a:hover{color:var(--gold2)}
         </div>
       </div>
 
-      <!-- Paket PT -->
       <div class="paket-card reveal">
         <div class="paket-header">
           <div class="paket-tipe">Paket PT</div>
-          <div class="paket-judul">Untuk Perusahaan Besar</div>
+          <div class="paket-judul">Perusahaan Besar</div>
           <div class="paket-sub">Mulai dari Rp5.000.000</div>
         </div>
         <div class="paket-body">
-          <div class="paket-varian">
-            <div class="paket-varian-label">Varian 1</div>
-            <div class="paket-varian-name">Landing Page</div>
-            <div class="paket-varian-price">Rp5.000.000 <small>/proyek</small></div>
+          <div class="paket-harga">
+            <div class="paket-harga-label">Landing Page</div>
+            <div class="paket-harga-judul">1 Halaman Fully Custom</div>
+            <div class="paket-harga-nominal"><span class="coret">Rp8.000.000</span>Rp5.000.000 <small>/proyek</small></div>
           </div>
-          <div class="paket-varian">
-            <div class="paket-varian-label">Varian 2</div>
-            <div class="paket-varian-name">Website Operasional + Admin</div>
-            <div class="paket-varian-price">Rp15.000.000 <small>/proyek</small></div>
+          <div class="paket-harga">
+            <div class="paket-harga-label">Website Operasional</div>
+            <div class="paket-harga-judul">Sistem + Admin Panel Penuh</div>
+            <div class="paket-harga-nominal"><span class="coret">Rp20.000.000</span>Rp15.000.000 <small>/proyek</small></div>
           </div>
           <ul class="paket-fitur">
             <li>Desain premium fully custom</li>
-            <li>Sistem operasional + admin panel penuh</li>
-            <li>Integrasi API, payment gateway, WhatsApp</li>
+            <li>Sistem operasional + admin panel</li>
+            <li>Integrasi API, payment, WhatsApp</li>
             <li>Optimasi SEO maksimal</li>
             <li>Hosting &amp; domain premium 1 tahun</li>
             <li>Support 6 bulan + maintenance</li>
-            <li>Revisi desain 3x + pelatihan admin</li>
-            <li>Sistem keamanan &amp; backup data</li>
+            <li>Revisi 3x + pelatihan admin</li>
+            <li>Keamanan &amp; backup data</li>
           </ul>
           <a href="https://wa.me/6285314019425" class="paket-btn">Pilih Paket PT</a>
         </div>
@@ -497,7 +574,7 @@ footer a:hover{color:var(--gold2)}
 </section>
 
 <!-- CLIEN -->
-<section id="clien" style="background:var(--off-white);padding:60px 0">
+<section id="clien">
   <div class="container">
     <div class="section-tag reveal">Klien</div>
     <h2 class="section-title reveal">Telah Bekerja Sama <span class="gold">Dengan</span></h2>
@@ -514,19 +591,30 @@ footer a:hover{color:var(--gold2)}
   </div>
 </section>
 
-<style>
-.clien-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;max-width:780px;margin:0 auto}
-.clien-item{background:var(--white);border:1px solid var(--border);border-radius:50px;padding:12px 28px;font-family:var(--font-head);font-weight:600;font-size:15px;color:var(--navy);transition:all .3s var(--ease2)}
-.clien-item:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 6px 20px rgba(201,162,39,.12);color:var(--gold)}
-@media(max-width:600px){
-  .clien-item{font-size:13px;padding:10px 20px}
-}
-</style>
+<!-- TESTIMONI -->
+<section id="testimoni" style="background:var(--off-white)">
+  <div class="container">
+    <div class="section-tag reveal">Testimoni</div>
+    <h2 class="section-title reveal">Apa Kata <span class="gold">Klien Kami</span></h2>
+    <p class="section-sub reveal">Bukti nyata kepuasan klien dari berbagai industri yang telah bekerja sama dengan HEM.</p>
+    <div class="testimoni-grid">
+      <div class="testimoni-card reveal">
+        <img src="testimoni/1.webp" alt="Testimoni klien HEM 1" loading="lazy">
+      </div>
+      <div class="testimoni-card reveal reveal-delay-1">
+        <img src="testimoni/2.webp" alt="Testimoni klien HEM 2" loading="lazy">
+      </div>
+      <div class="testimoni-card reveal reveal-delay-2">
+        <img src="testimoni/3.webp" alt="Testimoni klien HEM 3" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- PORTOFOLIO -->
-<section id="portofolio" style="background:var(--white);padding:80px 0">
+<section id="portofolio" style="background:var(--white)">
   <div class="container">
-    <div class="section-tag reveal">Portofolio</div>
+    <div class="section-tag reveal">Contoh Project Yang Kami Kerjakan</div>
     <h2 class="section-title reveal">Beberapa Project <span class="gold">Kami</span></h2>
     <p class="section-sub reveal">Lihat hasil kerja nyata yang telah kami buat untuk berbagai klien dari berbagai industri.</p>
     <div class="portfolio-grid">
@@ -571,28 +659,13 @@ footer a:hover{color:var(--gold2)}
         </div>
       </a>
     </div>
-    <div style="text-align:center;margin-top:32px">
-      <a href="portofolio.html" class="btn-outline-light" style="color:var(--navy);border-color:var(--navy);display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;font-weight:600;font-size:15px;border:1.5px solid;transition:all .3s">Lihat Semua Project &rarr;</a>
+    <div class="portfolio-more" style="text-align:center;margin-top:32px">
+      <a href="portofolio.html">Lihat Semua Project &rarr;</a>
     </div>
   </div>
 </section>
 
-<style>
-.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.portfolio-card{display:flex;flex-direction:column;background:var(--off-white);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;text-decoration:none;color:inherit;transition:all .35s var(--ease2)}
-.portfolio-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(6,26,64,.08);border-color:var(--gold)}
-.portfolio-img{height:190px;overflow:hidden}
-.portfolio-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.portfolio-card:hover .portfolio-img img{transform:scale(1.05)}
-.portfolio-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column}
-.portfolio-badge{display:inline-block;background:var(--gold-l);color:var(--gold);font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;width:fit-content;margin-bottom:8px;letter-spacing:.3px}
-.portfolio-body h3{font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3}
-.portfolio-body p{font-size:13px;color:var(--muted);line-height:1.6;flex:1}
-@media(max-width:640px){
-  .portfolio-grid{grid-template-columns:1fr}
-  .portfolio-img{height:160px}
-}
-</style>
+
 
 <!-- CTA AKHIR -->
 <section class="cta-final">
