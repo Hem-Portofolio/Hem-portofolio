@@ -3,7 +3,7 @@
    Strategy: Cache-First assets, Network-First pages
    ═══════════════════════════════════════════════ */
 
-const APP_VERSION   = 'hem-v1.1.1';
+const APP_VERSION   = 'hem-v1.2.0';
 const CACHE_STATIC  = `hem-static-${APP_VERSION}`;
 const CACHE_DYNAMIC = `hem-dynamic-${APP_VERSION}`;
 const CACHE_IMAGES  = `hem-images-${APP_VERSION}`;
@@ -13,6 +13,7 @@ const STATIC_ASSETS = [
   './index.html',
   './manifest.json',
   './logo.png',
+  './banner1.webp',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap'
 ];
 
