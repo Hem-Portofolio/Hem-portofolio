@@ -49,11 +49,11 @@
   "areaServed": ["Cimahi", "Bandung", "Indonesia"],
   "description": "Layanan social media management profesional untuk meningkatkan brand awareness, engagement, dan penjualan melalui strategi konten yang terarah dan konsisten.",
   "offers": [
-    {"@type":"Offer","name":"Social Media Optimasi","price":"1000000","priceCurrency":"IDR"},
-    {"@type":"Offer","name":"Social Media Basic Package","price":"1600000","priceCurrency":"IDR"},
-    {"@type":"Offer","name":"Social Media Full Optimasi","price":"3500000","priceCurrency":"IDR"},
-    {"@type":"Offer","name":"Social Media Full Handle","price":"5999000","priceCurrency":"IDR"},
-    {"@type":"Offer","name":"Copywriting Specialist","price":"2699000","priceCurrency":"IDR"}
+    {"@type":"Offer","name":"Social Media Optimasi","price":"700000","priceCurrency":"IDR"},
+    {"@type":"Offer","name":"Social Media Basic Package","price":"1120000","priceCurrency":"IDR"},
+    {"@type":"Offer","name":"Social Media Full Optimasi","price":"2450000","priceCurrency":"IDR"},
+    {"@type":"Offer","name":"Social Media Full Handle","price":"4199000","priceCurrency":"IDR"},
+    {"@type":"Offer","name":"Copywriting Specialist","price":"1889000","priceCurrency":"IDR"}
   ]
 }
 </script>
@@ -151,6 +151,13 @@ section{padding:80px 0}
 .pricing-features li::before{content:'\2713';color:var(--gold);font-weight:700;font-size:12px;flex-shrink:0}
 .pricing-btn{display:block;text-align:center;background:var(--gold);color:var(--navy);padding:10px;border-radius:50px;font-weight:700;font-size:13px;transition:all .3s;margin-top:auto}
 .pricing-btn:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 4px 12px var(--gold-glow)}
+.pricing-card.diskon{border-color:#ef4444}
+.pricing-card.diskon:hover{box-shadow:0 12px 40px rgba(239,68,68,.2)}
+.pricing-badge-diskon{position:absolute;top:12px;left:12px;background:#ef4444;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:50px;z-index:2}
+.pricing-card.diskon .pricing-header{background:linear-gradient(135deg,#1e1e2f,#2a1a1a)}
+.pricing-price .coret{font-size:14px;font-weight:400;color:#ef4444;text-decoration:line-through;margin-right:6px;vertical-align:middle;display:inline-block;position:relative;top:-2px}
+.pricing-btn-diskon{background:#ef4444;color:#fff}
+.pricing-btn-diskon:hover{background:#dc2626;color:#fff;box-shadow:0 4px 16px rgba(239,68,68,.4)}
 
 /* FAQ */
 .faq-grid{max-width:720px;margin:0 auto}
@@ -322,12 +329,13 @@ footer a:hover{color:var(--gold2)}
     <p class="section-sub reveal">Harga transparan, hasil maksimal. Setiap paket dapat disesuaikan dengan kebutuhan spesifik bisnis Anda.</p>
     <div class="pricing-grid">
 
-      <div class="pricing-card reveal">
+      <div class="pricing-card diskon reveal">
+        <div class="pricing-badge-diskon">Diskon 30%</div>
         <div class="pricing-header">
           <div class="pricing-name">Paket 1</div>
           <div class="pricing-title">Social Media Optimasi</div>
           <div class="pricing-sub">Mulai dari</div>
-          <div class="pricing-price"><span class="amount">Rp1.000.000</span> <span class="period">/bulan</span></div>
+          <div class="pricing-price"><span class="amount"><span class="coret">Rp1.000.000</span>Rp700.000</span> <span class="period">/bulan</span></div>
         </div>
         <div class="pricing-body">
           <ul class="pricing-features">
@@ -338,16 +346,17 @@ footer a:hover{color:var(--gold2)}
             <li>Analisis performa dasar</li>
             <li>Konsultasi 1x per minggu</li>
           </ul>
-          <a href="https://wa.me/6281312556871" class="pricing-btn">Pilih Paket Ini</a>
+          <a href="https://wa.me/6281312556871" class="pricing-btn pricing-btn-diskon">Pilih Paket Ini</a>
         </div>
       </div>
 
-      <div class="pricing-card reveal">
+      <div class="pricing-card diskon reveal">
+        <div class="pricing-badge-diskon">Diskon 30%</div>
         <div class="pricing-header">
           <div class="pricing-name">Paket 2</div>
           <div class="pricing-title">Social Media Basic Package</div>
           <div class="pricing-sub">Mulai dari</div>
-          <div class="pricing-price"><span class="amount">Rp1.600.000</span> <span class="period">/bulan</span></div>
+          <div class="pricing-price"><span class="amount"><span class="coret">Rp1.600.000</span>Rp1.120.000</span> <span class="period">/bulan</span></div>
         </div>
         <div class="pricing-body">
           <ul class="pricing-features">
@@ -358,16 +367,17 @@ footer a:hover{color:var(--gold2)}
             <li>Story template 8 set</li>
             <li>Laporan performa bulanan</li>
           </ul>
-          <a href="https://wa.me/6281312556871" class="pricing-btn">Pilih Paket Ini</a>
+          <a href="https://wa.me/6281312556871" class="pricing-btn pricing-btn-diskon">Pilih Paket Ini</a>
         </div>
       </div>
 
-      <div class="pricing-card reveal">
+      <div class="pricing-card diskon reveal">
+        <div class="pricing-badge-diskon">Diskon 30%</div>
         <div class="pricing-header">
           <div class="pricing-name">Paket 3</div>
           <div class="pricing-title">Social Media Full Optimasi</div>
           <div class="pricing-sub">Mulai dari</div>
-          <div class="pricing-price"><span class="amount">Rp3.500.000</span> <span class="period">/bulan</span></div>
+          <div class="pricing-price"><span class="amount"><span class="coret">Rp3.500.000</span>Rp2.450.000</span> <span class="period">/bulan</span></div>
         </div>
         <div class="pricing-body">
           <ul class="pricing-features">
@@ -379,17 +389,18 @@ footer a:hover{color:var(--gold2)}
             <li>Reels konten 4 video</li>
             <li>Laporan analitik lengkap</li>
           </ul>
-          <a href="https://wa.me/6281312556871" class="pricing-btn">Pilih Paket Ini</a>
+          <a href="https://wa.me/6281312556871" class="pricing-btn pricing-btn-diskon">Pilih Paket Ini</a>
         </div>
       </div>
 
-      <div class="pricing-card recommended reveal">
+      <div class="pricing-card recommended diskon reveal">
+        <div class="pricing-badge-diskon">Diskon 30%</div>
         <div class="pricing-badge">Paling Direkomendasikan</div>
         <div class="pricing-header">
           <div class="pricing-name">Paket 4</div>
           <div class="pricing-title">Social Media Full Handle</div>
           <div class="pricing-sub">Mulai dari</div>
-          <div class="pricing-price"><span class="amount">Rp5.999.000</span> <span class="period">/bulan</span></div>
+          <div class="pricing-price"><span class="amount"><span class="coret">Rp5.999.000</span>Rp4.199.000</span> <span class="period">/bulan</span></div>
         </div>
         <div class="pricing-body">
           <ul class="pricing-features">
@@ -402,16 +413,17 @@ footer a:hover{color:var(--gold2)}
             <li>Strategi pertumbuhan brand</li>
             <li>Laporan performa mingguan &amp; bulanan</li>
           </ul>
-          <a href="https://wa.me/6281312556871" class="pricing-btn">Pilih Paket Ini</a>
+          <a href="https://wa.me/6281312556871" class="pricing-btn pricing-btn-diskon">Pilih Paket Ini</a>
         </div>
       </div>
 
-      <div class="pricing-card reveal">
+      <div class="pricing-card diskon reveal">
+        <div class="pricing-badge-diskon">Diskon 30%</div>
         <div class="pricing-header">
           <div class="pricing-name">Paket 5</div>
           <div class="pricing-title">Copywriting Specialist</div>
           <div class="pricing-sub">Mulai dari</div>
-          <div class="pricing-price"><span class="amount">Rp2.699.000</span> <span class="period">/bulan</span></div>
+          <div class="pricing-price"><span class="amount"><span class="coret">Rp2.699.000</span>Rp1.889.000</span> <span class="period">/bulan</span></div>
         </div>
         <div class="pricing-body">
           <ul class="pricing-features">
@@ -423,7 +435,7 @@ footer a:hover{color:var(--gold2)}
             <li>Revisi konten 2x</li>
             <li>Laporan performa konten</li>
           </ul>
-          <a href="https://wa.me/6281312556871" class="pricing-btn">Pilih Paket Ini</a>
+          <a href="https://wa.me/6281312556871" class="pricing-btn pricing-btn-diskon">Pilih Paket Ini</a>
         </div>
       </div>
 

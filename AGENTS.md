@@ -59,11 +59,11 @@ Service pages (`jasa-*.html`) and `portofolio.html` have their own simpler inlin
 - `sitemap.xml` — 5 URLs, update when adding pages
 - `robots.txt` — allows all, points to sitemap
 
-## Key inconsistencies to be aware of
+## Known inconsistencies
 
-- `<meta name="theme-color">` is `#f8f9fa` on `index.html` / portfolio / blog but `#061A40` on the two `jasa-*` service pages (legacy from before the light-theme migration)
-- `portofolio.html` uses an older CSS structure: nav id is `#navbar` (vs `nav` on index), hamburger uses `.active` class (vs `.open`), section-tag is a filled pill (vs gradient text on index)
-- The offline fallback HTML in `sw.js` still has dark-theme styling
+- `<meta name="theme-color">` is `#f8f9fa` on `index.html` / portfolio / blog but `#061A40` on the two `jasa-*` pages (leftover from dark theme)
+- `portofolio.html` has a simpler layout — no hamburger/drawer, no scroll-spy, no stat counters
+- Offline fallback HTML in `sw.js:134` still uses dark-theme colors (`#080a0f`)
 
 ## Adding a new page
 
@@ -81,14 +81,14 @@ Service pages (`jasa-*.html`) and `portofolio.html` have their own simpler inlin
 
 ## Images
 
-- `img/*.webp` — 15 files (banner + 1–14)
+- `img/*.webp` — 17 files (banner + 1–16)
 - `testimoni/*.webp` — 6 files (1–6)
 - Root: `logo.png` (in use), `banner.webp` (in use), `banner1.webp` (pre-cached in SW), `prof.webp` (unused)
 - All images must be WebP format
 
 ## Contact info (hardcoded in HTML)
 
-- WhatsApp: `+62 813-1255-6871` (also `+62 851-6592-5749`)
+- WhatsApp: `+62 813-1255-6871` (also `+62 851-6592-5749` on index.html, `+62 823-4350-2671` on `jasa-pembuatan-website.html`)
 - Email: `hemagencysukses@gmail.com`
 - Instagram: `@hemagencysukses`
 - Google Reviews: `https://share.google/R4AFGanBGeRNy5Og3`
