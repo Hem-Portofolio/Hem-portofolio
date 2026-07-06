@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This file provides guidance to Qoder (qoder.com) when working with code in this repository.
+This file provides guidance to OpenCode when working in this repository.
 
 ## What this is
 
@@ -9,82 +9,71 @@ Static portfolio site for **HEM (Hyper Effect Marketing)**, a digital creative a
 ## Development commands
 
 ```bash
-# Serve locally (any static server works)
 npx serve .
-
-# No build, lint, or test steps — pure static site
 ```
+
+No build, lint, or test steps.
 
 ## Hosting & deploy
 
 - GitHub Pages (`Hem-Portofolio/Hem-portofolio`, branch `main`)
 - Live at `https://hemdigital.site/`
-- **Deploy = `git push` to `main`**. No build step, no CI.
+- **Deploy = `git push` to `main`**. No CI.
 - After any content change, bump `APP_VERSION` in `sw.js:6` to invalidate caches for returning visitors.
 
 ## Architecture
 
 ### CSS (inlined per page)
 
-- All CSS lives in `<style>` tags inside each HTML file — no external stylesheets.
-- The `:root` custom properties block is **duplicated identically** in every page. When editing theme values, update **all** pages.
+- All CSS in `<style>` tags — no external stylesheets.
+- `:root` custom properties block is **duplicated identically** in every page. When editing theme values, update **all** pages.
 - Current theme: **light**. Key vars: `--bg`, `--surface`, `--text`, `--accent`, `--grad`, `--font-head`, `--font-body`, `--r*`, `--ease*`.
-- Fonts: Plus Jakarta Sans (headings), Inter (body) via Google Fonts with `preload` + `media="print" onload` pattern.
-- Icons: Bootstrap Icons 1.11.3 CDN, same print-onload pattern.
+- Fonts (Plus Jakarta Sans, Inter) via Google Fonts, icons via Bootstrap Icons 1.11.3 CDN — both use `media="print" onload` lazy-load pattern.
 
 ### JavaScript (inlined per page)
 
-All JS is minified inline in a single `<script defer>` IIFE at the bottom of `index.html`. Key subsystems:
-
-- **Custom cursor** — dual-element (dot + ring) with `requestAnimationFrame` lerp, parallax on `.hero-bg`
-- **Scroll-spy nav** — calculates section offsets, highlights active link
-- **Reveal animations** — `IntersectionObserver` adds `.visible` to `.reveal` elements and animates `.skill-bar` width from `data-pct`
-- **Stat counters** — `IntersectionObserver` triggers `requestAnimationFrame` count-up on `.stat-num`
-- **Mobile nav** — hamburger toggles `.nav-drawer` + `.nav-overlay`
-- **PWA lifecycle** — SW registration with 60 s polling, `beforeinstallprompt` install banner, update toast (`SKIP_WAITING`), offline bar, iOS Safari install guide with swipe-to-dismiss
-
-Service pages (`jasa-*.html`) and `portofolio.html` have their own simpler inline JS (scroll reveal, mobile nav, cursor).
+- `index.html` has a single minified `<script defer>` IIFE covering: custom cursor (dual-element lerp + parallax), scroll-spy nav, `IntersectionObserver` reveal animations + skill-bar counters, stat count-up, mobile nav (hamburger ↔ drawer/overlay), PWA lifecycle (SW registration, install banner, update toast, offline bar, iOS guide).
+- Service pages (`jasa-*.html`) and `portofolio.html` have simpler inline JS (scroll reveal, mobile nav, cursor only).
 
 ### PWA / Service Worker (`sw.js`)
 
-- **Strategies**: cache-first (fonts, images), network-first with offline fallback (HTML), stale-while-revalidate (everything else)
-- **Cache buckets**: `hem-static-*`, `hem-dynamic-*`, `hem-images-*` (versioned via `APP_VERSION`)
-- **Pre-cached assets**: `index.html`, `manifest.json`, `logo.png`, `banner1.webp`, Google Fonts CSS
-- **Offline fallback**: inline HTML string in `offlinePage()` — note this still uses dark-theme colors (`#080a0f`), unlike the main site
+- **Strategies**: cache-first (fonts, images), network-first with offline fallback (HTML), stale-while-revalidate (everything else).
+- **Cache buckets**: `hem-static-*`, `hem-dynamic-*`, `hem-images-*` (versioned via `APP_VERSION`).
+- **Pre-cached assets**: `index.html`, `manifest.json`, `logo.png`, `banner1.webp`, Google Fonts CSS.
+- **Offline fallback** (`sw.js:134`): inline HTML string still uses dark-theme colors (`#080a0f`), unlike the main site.
 
 ### SEO
 
-- `index.html` uses `ProfessionalService` JSON-LD; service pages use `Service`; blog article uses `Article`
-- Every page: canonical URL, Open Graph, Twitter Card, `<html lang="id">`
-- `sitemap.xml` — 5 URLs, update when adding pages
-- `robots.txt` — allows all, points to sitemap
+- `index.html` uses `ProfessionalService` JSON-LD; service pages use `Service`; blog uses `Article`.
+- Every page: canonical URL, Open Graph, Twitter Card, `<html lang="id">`.
+- `sitemap.xml` — 5 URLs, update when adding pages.
+- `robots.txt` — allows all, points to sitemap.
 
 ## Known inconsistencies
 
-- `<meta name="theme-color">` is `#f8f9fa` on `index.html` / portfolio / blog but `#061A40` on the two `jasa-*` pages (leftover from dark theme)
-- `portofolio.html` has a simpler layout — no hamburger/drawer, no scroll-spy, no stat counters
-- Offline fallback HTML in `sw.js:134` still uses dark-theme colors (`#080a0f`)
+- `<meta name="theme-color">` is `#f8f9fa` on `index.html` / portfolio / blog but `#061A40` on the two `jasa-*` pages (leftover from dark theme).
+- `jasa-management-social-media.html` canonical URL is missing `.html` — `https://hemdigital.site/jasa-management-social-media` (sitemap has the `.html` version).
+- `portofolio.html` has a simpler layout — no hamburger/drawer, no scroll-spy, no stat counters.
+- Offline fallback HTML in `sw.js:134` still uses dark-theme colors (`#080a0f`).
 
 ## Adding a new page
 
-1. Copy the `<head>` meta block from an existing page (canonical, OG, Twitter, JSON-LD, fonts, `:root` CSS vars)
-2. Update `<title>`, canonical URL, OG/Twitter tags, and JSON-LD for the new page
-3. Add the URL to `sitemap.xml`
-4. If it's a major page, add it to `STATIC_ASSETS` in `sw.js`
-5. Bump `APP_VERSION` in `sw.js:6`
+1. Copy the `<head>` meta block from an existing page (canonical, OG, Twitter, JSON-LD, fonts, `:root` CSS vars).
+2. Update `<title>`, canonical URL, OG/Twitter tags, and JSON-LD for the new page.
+3. Add URL to `sitemap.xml`.
+4. If it's a major page, add to `STATIC_ASSETS` in `sw.js`.
+5. Bump `APP_VERSION` in `sw.js:6`.
 
-## Theme migration notes (dark → light)
+## Theme migration (dark → light)
 
-- Plan documented in `.opencode/plans/light-theme-changes.md`
-- To switch themes: update `:root` vars in **all** pages, swap `rgba(255,255,255,…)` ↔ `rgba(0,0,0,…)` backgrounds, update `manifest.json` `background_color`
-- Button/badge foregrounds: dark theme used `color: var(--bg)`; light theme must use `#fff`
+Completed. Archive reference: `.opencode/plans/light-theme-changes.md`. If re-doing: update `:root` vars in **all** pages, swap `rgba(255,255,255,…)` ↔ `rgba(0,0,0,…)` backgrounds, update `manifest.json` `background_color`.
 
 ## Images
 
-- `img/*.webp` — 17 files (banner + 1–16)
-- `testimoni/*.webp` — 6 files (1–6)
-- Root: `logo.png` (in use), `banner.webp` (in use), `banner1.webp` (pre-cached in SW), `prof.webp` (unused)
-- All images must be WebP format
+- `img/*.webp` — 17 files (banner + 1–16).
+- `testimoni/*.webp` — 6 files (1–6).
+- Root: `logo.png` (in use), `banner.webp` (in use), `banner1.webp` (pre-cached in SW), `prof.webp` (unused).
+- All images must be WebP.
 
 ## Contact info (hardcoded in HTML)
 
