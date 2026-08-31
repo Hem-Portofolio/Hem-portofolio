@@ -3,7 +3,7 @@
    Strategy: Cache-First assets, Network-First pages
    ═══════════════════════════════════════════════ */
 
-const APP_VERSION   = 'hem-v1.2.1';
+const APP_VERSION   = 'hem-v1.2.2';
 const CACHE_STATIC  = `hem-static-${APP_VERSION}`;
 const CACHE_DYNAMIC = `hem-dynamic-${APP_VERSION}`;
 const CACHE_IMAGES  = `hem-images-${APP_VERSION}`;
